@@ -10,4 +10,8 @@ RSpec.describe Product, type: :model do
     it { should validate_length_of(:sku_code).is_equal_to(8) }
   end
 
+  context 'Association' do
+    it { should have_many(:stocks) }
+  end
+
 end
