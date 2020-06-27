@@ -2,7 +2,7 @@ class StocksCreationJob < ApplicationJob
   queue_as :default
 
   def perform(ware_house_id)
-    Product.all.each do |product|
+    Product.find_each do |product|
       Stock.create(
         product_id: product.id,
         ware_house_id: ware_house_id,
