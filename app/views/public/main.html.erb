@@ -5,17 +5,18 @@
         <tr>
           <th scope="col">Product Sku Code</th>
           <th scope="col">Product Name</th>
-          <% @ware_house_ids.each do |id| %>
-            <th scope="col"><%= WareHouse.find(id).name %></th>
+          <% @stocks.each do |stock| %>
+            <th scope="col"><%= stock.ware_house.name %></th>
           <% end %>
         </tr>
       </thead>
       <tbody>
         <% @products.each do |product| %>
           <tr>
-            <th scope="row"><%= product.sku_code %></th>
+            <th scope="row">
+              <%= link_to product.sku_code, edit_product_path(product) %></th>
             <td><%= product.name %></td>
-            <% product.stocks.each do |stock| %>
+            <% product.stocks.order(:ware_house_id).each do |stock| %>
               <td class="<%= 'bg-danger' if stock.item_count < stock.low_item_threshold %>">
                 <%= stock.item_count %>
               </td>
