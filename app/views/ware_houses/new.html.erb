@@ -1,0 +1,39 @@
+<div class="container">
+
+ <h1 class="mt-4 font-weight-normal text-center">New WareHouse</h1>
+
+  <%= form_with(model: @ware_house, local: true) do |form| %>
+
+    <%= render "layouts/error", obj: @ware_house %>
+
+    <div class="form-group">
+      <%= form.label :wh_code %>
+      <%= form.text_field :wh_code, class: "form-control", placeholder: 'Enter 4-16 character unique code' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :pincode %>
+      <%= form.text_field :pincode, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :max_capacity %>
+      <%= form.number_field :max_capacity, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit "Save WareHouse", class: "btn btn-success" %>
+    </div>
+
+  <% end %>
+
+  <div class="text-center h4">
+    <%= link_to 'Home', root_path %>
+  </div>
+
+</div>
