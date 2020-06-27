@@ -1,5 +1,29 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
-    This is the home page
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Product Sku Code</th>
+          <th scope="col">Product Name</th>
+          <% @ware_house_ids.each do |id| %>
+            <th scope="col"><%= WareHouse.find(id).name %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <th scope="row"><%= product.sku_code %></th>
+            <td><%= product.name %></td>
+            <% product.stocks.each do |stock| %>
+              <td class="<%= 'bg-danger' if stock.item_count < stock.low_item_threshold %>">
+                <%= stock.item_count %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
   </div>
 </div>

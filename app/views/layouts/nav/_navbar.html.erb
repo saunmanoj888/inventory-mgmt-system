@@ -1,0 +1,8 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom box-shadow">
+  <h5 class="my-0 mr-md-auto font-weight-normal"><%= link_to "Inventory Mgmt System", root_path, class: "text-muted" %></h5>
+  <% unless controller.controller_name == 'ware_houses' %>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <%= link_to "Create WareHouse", new_ware_house_path, class: "btn btn-outline-success" %>
+    </nav>
+  <% end %>
+</div>

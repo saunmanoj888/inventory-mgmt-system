@@ -59,7 +59,7 @@ end
 
 #*******************************************************************
 
-#*************Create stock where warehouse is Bangalore*************
+#*************Create stock where warehouse is New Delhi*************
 
 warhouse3 = WareHouse.find_by(name: 'New Delhi')
 
